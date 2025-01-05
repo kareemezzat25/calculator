@@ -172,7 +172,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                               title: "=",
                               colorTitle: Colors.white,
                               colorButton: Color(0xFF005DB2),
-                              onclick: onButtonClicked)
+                              onclick: onEqualClicked)
                         ],
                       ),
                     ],
@@ -185,6 +185,11 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   }
 
   onButtonClicked(title) {
+    // one operation
+    /*if (op == "=") {
+      resultScreen = "";
+      op = "";
+    }*/
     resultScreen += title;
     setState(() {});
   }
@@ -195,29 +200,33 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     if (op.isEmpty) {
       LHS = resultScreen;
     } else {
-      LHS = calculate(LHS, op, resultScreen);
+      //if i need make opertions after i click equal
+      if (op == "=") {
+        LHS = resultScreen;
+      } else {
+        LHS = calculate(LHS, op, resultScreen);
+      }
     }
     op = operator;
-    print("Result : $LHS");
-    print("Operator : $op");
     resultScreen = "";
   }
 
-  String calculate(String LHS, String op, String RHS) {
+  String calculate(LHS, op, RHS) {
     double lhs = double.parse(LHS);
     double rhs = double.parse(RHS);
     double result;
+
     if (op == "+") {
       result = lhs + rhs;
       return result.toString();
     } else if (op == "-") {
       result = lhs - rhs;
       return result.toString();
-    } else if (op == "/") {
-      result = lhs / rhs;
-      return result.toString();
     } else if (op == "*") {
       result = lhs * rhs;
+      return result.toString();
+    } else if (op == "/") {
+      result = lhs / rhs;
       return result.toString();
     } else if (op == "%") {
       result = lhs % rhs;
@@ -225,5 +234,11 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     } else {
       return "";
     }
+  }
+
+  onEqualClicked(operator) {
+    resultScreen = calculate(LHS, op, resultScreen);
+    op = operator;
+    setState(() {});
   }
 }
