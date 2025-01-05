@@ -40,7 +40,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             title: "AC",
                             colorButton: Color(0xFF616161),
                             colorTitle: Colors.white,
-                            onclick: onButtonClicked,
+                            onclick: onAcButton,
                           ),
                           Expanded(
                               child: Container(
@@ -191,6 +191,13 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       op = "";
     }*/
     resultScreen += title;
+    setState(() {});
+  }
+
+  onAcButton(title) {
+    LHS = "";
+    op = "";
+    resultScreen = "";
     setState(() {});
   }
 
