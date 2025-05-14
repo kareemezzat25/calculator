@@ -17,7 +17,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       child: Scaffold(
           backgroundColor: Colors.black,
           body: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Column(
               children: [
                 Expanded(
@@ -25,7 +25,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                   child: Container(
                       alignment: Alignment.centerRight,
                       child: Text(resultScreen,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
                               color: Colors.white))),
@@ -38,35 +38,40 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                         children: [
                           Calcbutton(
                             title: "AC",
-                            colorButton: Color(0xFF616161),
+                            colorButton: const Color(0xFF616161),
                             colorTitle: Colors.white,
                             onclick: onAcButton,
                           ),
                           Expanded(
                               child: Container(
-                            margin: EdgeInsets.all(8),
+                            margin: const EdgeInsets.all(8),
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                  backgroundColor: Color(0xFF616161),
+                                  backgroundColor: const Color(0xFF616161),
                                   foregroundColor: Colors.white,
-                                  padding: EdgeInsets.all(22),
+                                  padding: const EdgeInsets.all(22),
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(16))),
-                              onPressed: () {},
-                              child: Icon(Icons.remove_circle_outline_rounded,
+                              onPressed: () {
+                                resultScreen = resultScreen.substring(
+                                    0, resultScreen.length - 1);
+                                setState(() {});
+                              },
+                              child: const Icon(
+                                  Icons.remove_circle_outline_rounded,
                                   size: 20),
                             ),
                           )),
                           Calcbutton(
                             title: "%",
                             colorTitle: Colors.white,
-                            colorButton: Color(0xFF005DB2),
+                            colorButton: const Color(0xFF005DB2),
                             onclick: operatorClicked,
                           ),
                           Calcbutton(
                             title: "*",
                             colorTitle: Colors.white,
-                            colorButton: Color(0xFF005DB2),
+                            colorButton: const Color(0xFF005DB2),
                             onclick: operatorClicked,
                           )
                         ],
@@ -75,26 +80,26 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                         children: [
                           Calcbutton(
                             title: "7",
-                            colorButton: Color(0xFF303136),
-                            colorTitle: Color(0xFF005DB2),
+                            colorButton: const Color(0xFF303136),
+                            colorTitle: const Color(0xFF005DB2),
                             onclick: onButtonClicked,
                           ),
                           Calcbutton(
                             title: "8",
-                            colorButton: Color(0xFF303136),
-                            colorTitle: Color(0xFF005DB2),
+                            colorButton: const Color(0xFF303136),
+                            colorTitle: const Color(0xFF005DB2),
                             onclick: onButtonClicked,
                           ),
                           Calcbutton(
                             title: "9",
-                            colorButton: Color(0xFF303136),
-                            colorTitle: Color(0xFF005DB2),
+                            colorButton: const Color(0xFF303136),
+                            colorTitle: const Color(0xFF005DB2),
                             onclick: onButtonClicked,
                           ),
                           Calcbutton(
                             title: "/",
                             colorTitle: Colors.white,
-                            colorButton: Color(0xFF005DB2),
+                            colorButton: const Color(0xFF005DB2),
                             onclick: operatorClicked,
                           )
                         ],
@@ -103,26 +108,26 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                         children: [
                           Calcbutton(
                             title: "4",
-                            colorButton: Color(0xFF303136),
-                            colorTitle: Color(0xFF005DB2),
+                            colorButton: const Color(0xFF303136),
+                            colorTitle: const Color(0xFF005DB2),
                             onclick: onButtonClicked,
                           ),
                           Calcbutton(
                             title: "5",
-                            colorButton: Color(0xFF303136),
-                            colorTitle: Color(0xFF005DB2),
+                            colorButton: const Color(0xFF303136),
+                            colorTitle: const Color(0xFF005DB2),
                             onclick: onButtonClicked,
                           ),
                           Calcbutton(
                             title: "6",
-                            colorButton: Color(0xFF303136),
-                            colorTitle: Color(0xFF005DB2),
+                            colorButton: const Color(0xFF303136),
+                            colorTitle: const Color(0xFF005DB2),
                             onclick: onButtonClicked,
                           ),
                           Calcbutton(
                             title: "+",
                             colorTitle: Colors.white,
-                            colorButton: Color(0xFF005DB2),
+                            colorButton: const Color(0xFF005DB2),
                             onclick: operatorClicked,
                           )
                         ],
@@ -131,23 +136,23 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                         children: [
                           Calcbutton(
                               title: "1",
-                              colorButton: Color(0xFF303136),
-                              colorTitle: Color(0xFF005DB2),
+                              colorButton: const Color(0xFF303136),
+                              colorTitle: const Color(0xFF005DB2),
                               onclick: onButtonClicked),
                           Calcbutton(
                               title: "2",
-                              colorButton: Color(0xFF303136),
-                              colorTitle: Color(0xFF005DB2),
+                              colorButton: const Color(0xFF303136),
+                              colorTitle: const Color(0xFF005DB2),
                               onclick: onButtonClicked),
                           Calcbutton(
                               title: "3",
-                              colorButton: Color(0xFF303136),
-                              colorTitle: Color(0xFF005DB2),
+                              colorButton: const Color(0xFF303136),
+                              colorTitle: const Color(0xFF005DB2),
                               onclick: onButtonClicked),
                           Calcbutton(
                               title: "-",
                               colorTitle: Colors.white,
-                              colorButton: Color(0xFF005DB2),
+                              colorButton: const Color(0xFF005DB2),
                               onclick: operatorClicked)
                         ],
                       ),
@@ -155,23 +160,23 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                         children: [
                           Calcbutton(
                               title: "00",
-                              colorButton: Color(0xFF303136),
-                              colorTitle: Color(0xFF005DB2),
+                              colorButton: const Color(0xFF303136),
+                              colorTitle: const Color(0xFF005DB2),
                               onclick: onButtonClicked),
                           Calcbutton(
                               title: "0",
-                              colorButton: Color(0xFF303136),
-                              colorTitle: Color(0xFF005DB2),
+                              colorButton: const Color(0xFF303136),
+                              colorTitle: const Color(0xFF005DB2),
                               onclick: onButtonClicked),
                           Calcbutton(
                               title: ".",
-                              colorButton: Color(0xFF303136),
-                              colorTitle: Color(0xFF005DB2),
+                              colorButton: const Color(0xFF303136),
+                              colorTitle: const Color(0xFF005DB2),
                               onclick: onButtonClicked),
                           Calcbutton(
                               title: "=",
                               colorTitle: Colors.white,
-                              colorButton: Color(0xFF005DB2),
+                              colorButton: const Color(0xFF005DB2),
                               onclick: onEqualClicked)
                         ],
                       ),
@@ -248,4 +253,5 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     op = operator;
     setState(() {});
   }
+  //remove the end digit
 }
