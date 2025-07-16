@@ -1,9 +1,8 @@
-import 'package:calculator/calcbutton.dart';
 import 'package:calculator/calculator.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(CalculatorApp());
+  runApp(const CalculatorApp());
 }
 
 class CalculatorApp extends StatelessWidget {
@@ -11,7 +10,7 @@ class CalculatorApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: CalculatorScreen(),
     );
